@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Faça login para continuar...</title>
+    <title>Home - HubWork</title>
 
     <!-- | -- Require Meta Tags -- | -->
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@
         <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-house-fill"></i>
         </a>
-        <ul class="dropdown-menu text-small shadow" style="">
+        <ul class="dropdown-menu text-small shadow">
           <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
           <li><a class="dropdown-item" href="#">Inventory</a></li>
           <li><a class="dropdown-item" href="#">Customers</a></li>
@@ -50,12 +50,11 @@
 
       <div class="d-flex align-items-center">
         <form class="w-100 me-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" spellcheck="false">
         </form>
-
         <div class="flex-shrink-0 dropdown">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <i class="bi bi-person-fill fs-5"></i>
           </a>
           <ul class="dropdown-menu text-small shadow" style="">
             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -74,7 +73,7 @@
         url : 'phpSystem/logout.php',
         success : (response) => {
           if (response === '200') {
-            window.location.href = '../index.html';
+            window.location.href = '../';
           };
         },
         error : (response) => {
@@ -84,7 +83,7 @@
     });
   </script>
             <div class="px-4 py-5 my-5 text-center">
-                <h1 class="display-5 fw-bold text-body-emphasis">MinMaxCode</h1>
+                <h1 class="display-5 fw-bold text-body-emphasis textTitlePage">MinMaxCode - <span style="border-radius: .3rem;color : #353434;">hubwork</span></h1>
                 <div class="col-lg-6 mx-auto">
                   <p class="lead mb-4">Take advantage of numerous tools to streamline your work, focus on practicality and usability of our applications.</p>
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -102,7 +101,7 @@
                           };
                           
                           const createJorney = () => {
-                            window.scrollBy(0, 500);
+                            window.scrollBy(0, 1500);
                           };
                     </script>
                   </div>
