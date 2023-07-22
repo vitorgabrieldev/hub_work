@@ -8,30 +8,3 @@
     display: grid;
     place-content: center;
 }
-
-:root {
-    --calc-size-x: 20%;
-}
-
-.board {
-    display: flex;
-}
-.containerLeft {
-    width: var(--calc-size-x);
-    position: fixed;
-    height: 100%;
-}
-.containerRigth {
-    width: calc(100% - var(--calc-size-x));
-    margin-left: var(--calc-size-x);
-}
-.containerBtnProfile {
-    display: flex;
-    gap: .5rem;
-    align-items: center; 
-    justify-content: center;  
-}
-.containerBtnProfile > i {
-    font-size: 1.5rem;
-    margin-top: 0;
-}

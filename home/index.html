@@ -31,74 +31,80 @@
 </head>
 <body>
 
-    <section class="board">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark containerLeft">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-              <span class="fs-4">MinMaxCode</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                    <i class="bi bi-house-fill"></i>
-                    Home
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-wrench-adjustable"></i>
-                    Tools
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-gear-fill"></i>
-                    Settings
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-info-circle-fill"></i>
-                    About
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-star-fill"></i>
-                    Favorites
-                </a>
-              </li>
-            </ul>
-            <hr>
-            <div class="dropdown">
-              <a href="#" class="containerBtnProfile text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill"></i>
-                <strong id="username">vitorgabrieldev</strong>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-              </ul>
-            </div>
+            <header class="py-3 mb-3 border-bottom">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-house-fill"></i>
+        </a>
+        <ul class="dropdown-menu text-small shadow" style="">
+          <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
+          <li><a class="dropdown-item" href="#">Inventory</a></li>
+          <li><a class="dropdown-item" href="#">Customers</a></li>
+          <li><a class="dropdown-item" href="#">Products</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Reports</a></li>
+          <li><a class="dropdown-item" href="#">Analytics</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <form class="w-100 me-3" role="search">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="flex-shrink-0 dropdown">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow" style="">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li id="buttonLogOut"><a class="dropdown-item" href="#">Log out</a></li>
+          </ul>
         </div>
-        <div class="containerRigth">
+      </div>
+    </div>
+  </header>
+  <script type="text/javascript">
+    $('#buttonLogOut').click(() => {
+      $.ajax({
+        url : 'phpSystem/logout.php',
+        success : (response) => {
+          if (response === '200') {
+            window.location.href = '../index.html';
+          };
+        },
+        error : (response) => {
+          console.log(response);
+        },
+      });
+    });
+  </script>
             <div class="px-4 py-5 my-5 text-center">
                 <h1 class="display-5 fw-bold text-body-emphasis">MinMaxCode</h1>
                 <div class="col-lg-6 mx-auto">
                   <p class="lead mb-4">Take advantage of numerous tools to streamline your work, focus on practicality and usability of our applications.</p>
                   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+                    <button onclick="createJorney()" type="button" class="btn btn-primary btn-lg px-4 gap-3">
                         <i class="bi bi-arrow-down-short"></i>
                         start journey
                     </button>
-                    <button type="button" class="text-light btn btn-outline-secondary btn-lg px-4 btn-dark">
+                    <button type="button" onclick="redirectGithub()" class="text-light btn btn-outline-secondary btn-lg px-4 btn-dark">
                         <i class="bi bi-github"></i>
                         Github
                     </button>
+                    <script type="text/javascript">
+                          const redirectGithub = () => {
+                              window.location.href = 'https://www.github.com/vitorgabrieldev/hub_work';
+                          };
+                          
+                          const createJorney = () => {
+                            window.scrollBy(0, 500);
+                          };
+                    </script>
                   </div>
                 </div>
             </div>
@@ -144,18 +150,19 @@
                   </div>
                 </div>
               </div>
-        </div>
-    </section>
+        <script type="text/javascript">
+            $.ajax({
+              url : 'phpSystem/protect.php',
 
-    <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Account</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Tools</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-        </ul>
-        <p class="text-center text-body-secondary">© 2023 Company MinMaxCode, Inc</p>
-    <footer>
+              success : (response) => {
+                if (response === 'success') {
+                  window.location.href = '../';
+                };
+              },
+              error : (response) => {
+                console.log(response);
+              },
+            });
+        </script>
 </body>
 </html>
